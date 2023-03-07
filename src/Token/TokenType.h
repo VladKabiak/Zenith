@@ -6,8 +6,8 @@
 #define MYLANGUAGE_TOKENTYPE_H
 
 
-class TokenType {
-
+enum TokenType {
+    NUMBER, PLUS, MINUS, STAR, SLASH, EOL
 };
 
 

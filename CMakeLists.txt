@@ -3,4 +3,4 @@ project(MyLanguage)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(MyLanguage src/main.cpp src/Token/Token.cpp src/Token/Token.h src/Parser/Parser.cpp src/Parser/Parser.h src/Lexer/Lexer.cpp src/Lexer/Lexer.h src/TokenType/TokenType.cpp src/TokenType/TokenType.h)
+add_executable(MyLanguage src/main.cpp src/Token/Token.cpp src/Token/Token.h src/Parser/Parser.cpp src/Parser/Parser.h src/Lexer/Lexer.cpp src/Lexer/Lexer.h src/Token/TokenType.h)
