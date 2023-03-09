@@ -9,11 +9,10 @@ BinaryExpression::BinaryExpression(Expression* exp1, Expression* exp2, char oper
 
 double BinaryExpression::eval() {
     switch (operation) {
+        case '+': return exp1->eval() + exp2->eval();
         case '-': return exp1->eval() - exp2->eval();
         case '/': return exp1->eval() / exp2->eval();
         case '*': return exp1->eval() * exp2->eval();
-        case '+':
-        default:
-            return exp1->eval() + exp2->eval();
+        default: throw invalid_argument("Invalid operation");
     }
 }

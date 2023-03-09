@@ -6,6 +6,9 @@
 #define MYLANGUAGE_BINARYEXPRESSION_H
 
 #include "Expression.h"
+#include <stdexcept>
+
+using namespace std;
 
 class BinaryExpression: public Expression{
 private:
