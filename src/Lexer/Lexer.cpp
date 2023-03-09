@@ -5,7 +5,6 @@
 #include "Lexer.h"
 
 Lexer::Lexer(string input) : input(input) {
-    this->input = input;
     this->length = (int)input.size();
     this->pos = 0;
 }

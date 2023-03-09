@@ -7,6 +7,7 @@
 
 
 class Expression {
+public:
     virtual double eval() = 0;
 };
 

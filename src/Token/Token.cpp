@@ -7,10 +7,7 @@
 
 Token::Token() = default;
 
-Token::Token(TokenType type, string text) : type(type), text(text) {
-    this->type = type;
-    this->text = text;
-}
+Token::Token(TokenType type, string text) : type(type), text(text) {}
 
 TokenType Token::getType() const {
     return type;
