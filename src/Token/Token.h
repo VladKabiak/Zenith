@@ -11,13 +11,13 @@
 using namespace std;
 
 class Token {
-    private:
-        TokenType type;
-        string text;
+private:
+    TokenType type;
+    string text;
 
-    public:
-        Token();
-        Token(TokenType type, string text);
+public:
+    Token();
+    Token(TokenType type, string text);
 
     TokenType getType() const;
 

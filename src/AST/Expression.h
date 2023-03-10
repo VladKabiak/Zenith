@@ -5,7 +5,7 @@
 #ifndef MYLANGUAGE_EXPRESSION_H
 #define MYLANGUAGE_EXPRESSION_H
 
-
+// interface
 class Expression {
 public:
     virtual double eval() = 0;

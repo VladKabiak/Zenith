@@ -6,7 +6,22 @@
 #define MYLANGUAGE_PARSER_H
 
 
+#include "../Token/Token.h"
+#include "../AST/Expression.h"
+
 class Parser {
+private:
+    Token EOL = *new Token(EOL);
+    vector<Token> tokens;
+    int pos;
+    int size;
+    Token get (int relativePosition);
+    bool match(TokenType type);
+
+public:
+    Parser(const vector<Token> &tokens);
+
+    vector<Expression> parse();
 
 };
 

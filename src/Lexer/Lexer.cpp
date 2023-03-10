@@ -21,10 +21,6 @@ void Lexer::tokenizeNumber() {
 
 void Lexer::tokenizeOperator() {
     int position = distance(OPERATOR_CHARS.begin(), find(OPERATOR_CHARS.begin(), OPERATOR_CHARS.end(), peek(0)));
-    if (OPERATOR_TOKENS[position] == PLUS) cout << "PLUS" <<endl;
-    if (OPERATOR_TOKENS[position] == MINUS) cout << "MINUS" <<endl;
-    if (OPERATOR_TOKENS[position] == STAR) cout << "STAR" <<endl;
-    if (OPERATOR_TOKENS[position] == SLASH) cout << "SLASH" <<endl;
     addToken(OPERATOR_TOKENS[position]);
     next();
 }
