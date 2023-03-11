@@ -8,20 +8,29 @@
 
 #include "../Token/Token.h"
 #include "../AST/Expression.h"
+#include "../AST/NumberExpression.h"
+#include "../AST/BinaryExpression.h"
+
+using namespace std;
 
 class Parser {
 private:
-    Token EOL = *new Token(EOL);
+    Token EOL = Token(TokenType::EOL, "");
     vector<Token> tokens;
     int pos;
     int size;
+    Expression* expression();
+    Expression* addition();
+    Expression* multiply();
+    Expression* unary();
+    Expression* primary();
     Token get (int relativePosition);
     bool match(TokenType type);
 
 public:
-    Parser(const vector<Token> &tokens);
+    explicit Parser(const vector<Token> &tokens);
 
-    vector<Expression> parse();
+    vector<Expression*> parse();
 
 };
 

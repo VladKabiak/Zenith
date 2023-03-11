@@ -4,9 +4,7 @@
 
 #include "NumberExpression.h"
 
-NumberExpression::NumberExpression(const double val) : val(val) {
-    this->val = val;
-}
+NumberExpression::NumberExpression(const double val) : val(val) {}
 
 double NumberExpression::eval() {
     return val;

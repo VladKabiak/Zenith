@@ -4,6 +4,8 @@
 
 #ifndef MYLANGUAGE_TOKEN_H
 #define MYLANGUAGE_TOKEN_H
+
+
 #include <iostream>
 #include <vector>
 #include "TokenType.h"
