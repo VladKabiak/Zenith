@@ -40,11 +40,11 @@ Expression* Parser::addition() {
     Expression* res = multiply();
 
     while (true) {
-        if (match(STAR)) {
+        if (match(PLUS)) {
             res = new BinaryExpression(res, multiply(), '+');
             continue;
         }
-        if (match(SLASH)) {
+        if (match(MINUS)) {
             res = new BinaryExpression(res, multiply(), '-');
             continue;
         }
