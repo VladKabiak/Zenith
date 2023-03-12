@@ -29,6 +29,10 @@ vector<Token> Lexer::tokenize() {
     while (pos < length) {
         const char current = peek(0);
         if (isdigit(current)) tokenizeNumber();
+        else if (current == '#') {
+            next();
+            tokenizeHexNumber();
+        }
         else if (find(OPERATOR_CHARS.begin(), OPERATOR_CHARS.end(), peek(0)) != OPERATOR_CHARS.end()) {
             tokenizeOperator();
         } else {
@@ -55,6 +59,24 @@ char Lexer::peek(int relativePosition) {
     const int position = pos + relativePosition;
     if (position >= length) return '\0';
     return input[position];
+}
+
+void Lexer::tokenizeHexNumber() {
+    string val;
+    char curr = peek(0);
+    while (isHex(curr)){
+        val.push_back(curr);
+        curr = next();
+    }
+    addToken(HEX_NUMBER, val);
+}
+
+bool Lexer::isHex(char curr) {
+    string hex_char = "abcdef";
+    if (isdigit(curr) || hex_char.find(tolower(curr)) != string::npos) {
+        return true;
+    }
+    return false;
 }
 
 

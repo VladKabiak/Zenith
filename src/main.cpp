@@ -9,10 +9,11 @@ using namespace std;
 
 
 int main() {
-    string input = "2+2";
+    string input = "(2+2) * #0F";
     vector<Token> tokens = (new Lexer(input))->tokenize();
-    for (auto el : tokens)
+    for (auto el : tokens) {
         cout << el.getType() << " " << el.getText() << endl;
+    }
     vector<Expression*> expressions = (new Parser(tokens))->parse();
     for (auto el : expressions) {
         cout << el << " " << el->eval() << endl;

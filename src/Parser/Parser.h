@@ -10,6 +10,7 @@
 #include "../AST/Expression.h"
 #include "../AST/NumberExpression.h"
 #include "../AST/BinaryExpression.h"
+#include "../AST/UnaryExpression.h"
 
 using namespace std;
 

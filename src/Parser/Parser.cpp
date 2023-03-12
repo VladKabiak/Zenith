@@ -72,10 +72,11 @@ Expression* Parser::multiply() {
 }
 
 Expression* Parser::unary() {
-//    if (match(NUMBER)) {
-//        double val = std::stod(curr.getText());
-//        return new NumberExpression(val);
-//    }
+    if (match(MINUS)) {
+        return new UnaryExpression(primary(), '-');
+    } else if (match(PLUS)) {
+        return new UnaryExpression(primary(), '+');
+    }
     return primary();
 }
 
@@ -84,6 +85,16 @@ Expression* Parser::primary() {
     if (match(NUMBER)) {
         double val = stod(curr.getText());
         return new NumberExpression(val);
+    }
+    if (match(HEX_NUMBER)) {
+        unsigned long val = stoul(curr.getText(), nullptr, 16);
+        return new NumberExpression(val);
+    }
+    if (match(LPAREN)) {
+        Expression* res = expression();
+        if (match(RPAREN)){
+            return res;
+        }
     }
     // handle other cases (such as variables) here
     cout << pos << endl;

@@ -13,9 +13,9 @@ using namespace std;
 
 class Lexer {
     private:
-        const string OPERATOR_CHARS = "+-*/";
+        const string OPERATOR_CHARS = "+-*/()";
         const vector<TokenType> OPERATOR_TOKENS = {
-                PLUS, MINUS, STAR, SLASH
+                PLUS, MINUS, STAR, SLASH, LPAREN, RPAREN
         };
 
         string input;
@@ -32,6 +32,8 @@ class Lexer {
         explicit Lexer(string input);
         vector<Token> tokenize();
         void tokenizeNumber();
+        void tokenizeHexNumber();
+        static bool isHex(char curr);
         void tokenizeOperator();
 };
 
