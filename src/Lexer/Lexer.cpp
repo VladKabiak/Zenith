@@ -4,7 +4,7 @@
 
 #include "Lexer.h"
 
-Lexer::Lexer(string input) : input(input) {
+Lexer::Lexer(const string& input) : input(input) {
     this->length = (int)input.size();
     this->pos = 0;
 }

@@ -29,7 +29,7 @@ class Lexer {
 
 
     public:
-        explicit Lexer(string input);
+        explicit Lexer(const string& input);
         vector<Token> tokenize();
         void tokenizeNumber();
         void tokenizeHexNumber();
