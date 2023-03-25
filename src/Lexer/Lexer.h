@@ -33,8 +33,8 @@ class Lexer {
         vector<Token> tokenize();
         void tokenizeNumber();
         void tokenizeHexNumber();
-        static bool isHex(char curr);
         void tokenizeOperator();
+        static bool isHex(char curr);
 };
 
 
