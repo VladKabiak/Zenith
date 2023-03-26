@@ -12,7 +12,12 @@ Lexer::Lexer(const string& input) : input(input) {
 void Lexer::tokenizeNumber() {
     string val;
     char curr = peek(0);
-    while (isdigit(curr)){
+    while (true){
+        if (curr == '.') {
+            if (val.find('.' ) != string::npos ) throw invalid_argument("Invalid float");
+        } else if (!isdigit(curr)) {
+            break;
+        }
         val.push_back(curr);
         curr = next();
     }
@@ -29,6 +34,7 @@ vector<Token> Lexer::tokenize() {
     while (pos < length) {
         const char current = peek(0);
         if (isdigit(current)) tokenizeNumber();
+        else if (isalpha(current)) tokenizeWord();
         else if (current == '#') {
             next();
             tokenizeHexNumber();
@@ -61,6 +67,8 @@ char Lexer::peek(int relativePosition) {
     return input[position];
 }
 
+
+
 void Lexer::tokenizeHexNumber() {
     string val;
     char curr = peek(0);
@@ -77,6 +85,19 @@ bool Lexer::isHex(char curr) {
         return true;
     }
     return false;
+}
+
+void Lexer::tokenizeWord() {
+    string val;
+    char curr = peek(0);
+    while (true){
+        if (!isalnum(curr) && curr != '_' && curr != '$') { // isalnum returns true if (a-z or A-Z) or (0-9)
+            break;
+        }
+        val.push_back(curr);
+        curr = next();
+    }
+    addToken(WORD, val);
 }
 
 

@@ -90,6 +90,9 @@ Expression* Parser::primary() {
         unsigned long val = stoul(curr.getText(), nullptr, 16);
         return new NumberExpression(val);
     }
+    if (match(WORD)) {
+        return new ConstantExpression(curr.getText());
+    }
     if (match(LPAREN)) {
         Expression* res = expression();
         if (match(RPAREN)){

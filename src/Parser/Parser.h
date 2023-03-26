@@ -11,6 +11,7 @@
 #include "../AST/NumberExpression.h"
 #include "../AST/BinaryExpression.h"
 #include "../AST/UnaryExpression.h"
+#include "../AST/ConstantExpression.h"
 
 using namespace std;
 

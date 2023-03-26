@@ -9,7 +9,7 @@ using namespace std;
 
 
 int main() {
-    string input = "(2+2) * #0F";
+    string input = "PI * 2";
     vector<Token> tokens = (new Lexer(input))->tokenize();
     for (auto el : tokens) {
         cout << el.getType() << " " << el.getText() << endl;

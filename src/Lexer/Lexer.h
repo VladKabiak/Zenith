@@ -6,6 +6,7 @@
 #define MYLANGUAGE_LEXER_H
 
 #include <iostream>
+#include <stdexcept>
 #include <vector>
 #include "../Token/Token.h"
 
@@ -34,6 +35,7 @@ class Lexer {
         void tokenizeNumber();
         void tokenizeHexNumber();
         void tokenizeOperator();
+        void tokenizeWord();
         static bool isHex(char curr);
 };
 
