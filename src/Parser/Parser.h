@@ -11,7 +11,9 @@
 #include "../AST/NumberExpression.h"
 #include "../AST/BinaryExpression.h"
 #include "../AST/UnaryExpression.h"
-#include "../AST/ConstantExpression.h"
+#include "../AST/VariableExpression.h"
+#include "../AST/Statement.h"
+#include "../AST/AssignmentStatement.h"
 
 using namespace std;
 
@@ -21,6 +23,7 @@ private:
     vector<Token> tokens;
     int pos;
     int size;
+    Statement* statement();
     Expression* expression();
     Expression* addition();
     Expression* multiply();
@@ -28,12 +31,13 @@ private:
     Expression* primary();
     Token get (int relativePosition);
     bool match(TokenType type);
-
 public:
+
     explicit Parser(const vector<Token> &tokens);
 
-    vector<Expression*> parse();
+    vector<Statement*> parse();
 
+    Statement* assignmentStatement();
 };
 
 

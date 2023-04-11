@@ -14,9 +14,9 @@ using namespace std;
 
 class Lexer {
     private:
-        const string OPERATOR_CHARS = "+-*/()";
+        const string OPERATOR_CHARS = "+-*/()=";
         const vector<TokenType> OPERATOR_TOKENS = {
-                PLUS, MINUS, STAR, SLASH, LPAREN, RPAREN
+                PLUS, MINUS, STAR, SLASH, LPAREN, RPAREN, EQUAL
         };
 
         string input;
