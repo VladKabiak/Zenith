@@ -97,7 +97,11 @@ void Lexer::tokenizeWord() {
         val.push_back(curr);
         curr = next();
     }
-    addToken(WORD, val);
+    if (val == "display") {
+        addToken(DISPLAY);
+    } else {
+        addToken(WORD, val);
+    }
 }
 
 

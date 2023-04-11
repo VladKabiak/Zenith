@@ -9,6 +9,5 @@ AssignmentStatement::AssignmentStatement(string variable, Expression* expression
 
 void AssignmentStatement::execute() {
     const double res = expression->eval();
-    cout << "Entered execute with val: " << res << endl;
     Variables::addVariable(variable, res);
 }

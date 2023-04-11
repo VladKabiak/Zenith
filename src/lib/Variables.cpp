@@ -20,7 +20,6 @@ double Variables::getVariable(const string& name) {
 }
 
 void Variables::addVariable(const string &key, const double &val) {
-    cout << "Variable added with value: " << val << endl;
     variables.insert({key, val});
 }
 
