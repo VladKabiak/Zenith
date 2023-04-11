@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <fstream>
 #include "Token/Token.h"
 #include "Lexer/Lexer.h"
 #include "Parser/Parser.h"
@@ -8,8 +9,12 @@ using namespace std;
 
 
 int main() {
-    string input = "var = 2 + 7; word2 = 1+var";
-    vector<Token> tokens = (new Lexer(input))->tokenize();
+    fstream s{R"(C:\Users\kobia\Desktop\MyLanguage\src\program.txt)"};
+    string fileContents((istreambuf_iterator<char>(s)), istreambuf_iterator<char>());
+    s.close();
+
+
+    vector<Token> tokens = (new Lexer(fileContents))->tokenize();
     for (auto el : tokens) {
         cout << el.getType() << " " << el.getText() << endl;
     }
@@ -18,6 +23,6 @@ int main() {
         el->execute();
     }
     cout << "var " << Variables::getVariable("var") << endl;
-    cout << "word2 " << Variables::getVariable("word2") << endl;
+    cout << "var2 " << Variables::getVariable("var2") << endl;
     cout << "word132 " << Variables::getVariable("word132") << endl;
 }
