@@ -23,6 +23,6 @@ int main() {
         el->execute();
     }
     cout << "var " << Variables::getVariable("var") << endl;
-    cout << "var " << Variables::getVariable("word2") << endl;
+    cout << "var2 " << Variables::getVariable("var2") << endl;
     cout << "word132 " << Variables::getVariable("word132") << endl;
 }
